@@ -57,10 +57,15 @@ body {
 
   .contact_info_container {
     align-items: center;
+    gap: 20px;
   }
 
-  .contact-info__block:not(:last-child) {
-    margin-bottom: 20px;
+  .contact-info__block {
+    flex-direction: row;
+
+    .contact-info__item {
+      min-height: initial;
+    }
   }
 
   .experiences {
@@ -89,7 +94,11 @@ body {
 .contact-info__block {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  place-content: center;
+
+  a {
+    min-height: 3.5rem;
+  }
 }
 
 .contact-info__block--center {
@@ -124,12 +133,28 @@ body {
 }
 
 .contact-info__avatar {
+  z-index: 1;
   border-radius: 50%;
   width: 100px;
   height: 100px;
   object-fit: cover;
   border: 3px solid;
   border-color: var(--text-decoration-color);
+  transition: visibility 0s 0.3s, opacity 0.3s linear;
+}
+
+.hidden {
+  position: absolute;
+  z-index: -1000;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid;
+  border-color: var(--text-decoration-color);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.3s, opacity 0.3s linear;
 }
 
 .intro {
@@ -261,4 +286,20 @@ body {
 
 .additional-info__languages-item {
   color: var(--secondary-text-color);
+}
+
+.interests {
+  flex: 1 1 100%;
+
+  h3 {
+    color: var(--primary-text-color);
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+
+  p {
+    color: var(--secondary-text-color);
+    margin-bottom: 5px;
+  }
 }
